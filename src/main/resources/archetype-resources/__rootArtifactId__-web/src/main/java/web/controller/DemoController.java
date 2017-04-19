@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by ${user.name} on ${date.get('yyyy/M/d')}.
+ * Created by ${userName} on ${today}.
  */
 @RestController
 @RequestMapping("/demo")

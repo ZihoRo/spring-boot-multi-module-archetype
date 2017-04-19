@@ -4,7 +4,7 @@
 package ${package}.dal;
 
 /**
- * Created by ${user.name} on ${date.get('yyyy/M/d')}.
+ * Created by ${userName} on ${today}.
  */
 public class DemoDal {
 }

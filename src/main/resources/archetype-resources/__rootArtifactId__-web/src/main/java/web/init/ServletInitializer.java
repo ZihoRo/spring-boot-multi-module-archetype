@@ -10,7 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
- * Created by ${user.name} on ${date.get('yyyy/M/d')}.
+ * Created by ${userName} on ${today}.
  */
 @SpringBootApplication(scanBasePackages = {
         "com.shinemo.demo.web.controller",

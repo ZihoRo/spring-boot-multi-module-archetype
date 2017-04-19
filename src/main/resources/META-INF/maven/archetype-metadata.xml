@@ -11,6 +11,9 @@
         <requiredProperty key="userName">
             <defaultValue>ZihoRo</defaultValue>
         </requiredProperty>
+        <requiredProperty key="today">
+            <!--<defaultValue>2013-01-04</defaultValue>-->
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet encoding="UTF-8">
