@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>${rootArtifactId}</artifactId>
+        <groupId>${groupId}</groupId>
+        <version>${version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${groupId}.dal</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${project.parent.version}</version>
+    <name>${artifactId}</name>
+
+    <organization>
+        <name>${project.parent.organization.name}</name>
+        <url>${project.parent.organization.url}</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>${userName}</name>
+            <organization>${project.parent.organization.name}</organization>
+            <organizationUrl>${project.parent.organization.url}</organizationUrl>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>${groupId}.client</groupId>
+            <artifactId>${rootArtifactId}-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

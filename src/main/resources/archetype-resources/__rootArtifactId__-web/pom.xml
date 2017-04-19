@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>${rootArtifactId}</artifactId>
+        <groupId>${groupId}</groupId>
+        <version>${version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>${groupId}.web</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <packaging>war</packaging>
+    <version>${project.parent.version}</version>
+    <name>${parentArtifactId}-web</name>
+    <url>http://maven.apache.org</url>
+
+    <organization>
+        <name>${project.parent.organization.name}</name>
+        <url>${project.parent.organization.url}</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>${userName}</name>
+            <organization>${project.parent.organization.name}</organization>
+            <organizationUrl>${project.parent.organization.url}</organizationUrl>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>${groupId}.core</groupId>
+            <artifactId>${rootArtifactId}-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${parentArtifactId}</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <filtering>true</filtering>
+                            <directory>${project.basedir}/src/main/webapp</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

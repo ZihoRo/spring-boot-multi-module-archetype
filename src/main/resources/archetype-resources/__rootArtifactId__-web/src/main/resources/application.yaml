@@ -1,0 +1,57 @@
+log:
+  home: /data/logs/${parentArtifactId}
+  charset: utf-8
+application.name: ${parentArtifactId}
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+# type-aliases-package:
+  config-location: classpath:mybatis-config.xml
+log4jdbc:
+  dump.sql.addsemicolon: true
+  sqltiming:
+    error.threshold: 1000
+    warn.threshold: 500
+logback.charset: utf-8
+spring:
+  profiles-active: ${deploy.env}
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+    serialization-write-dates-as-timestamps: false
+    serialization-inclusion: non_empty
+  http.encoding.force: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    max-active: 20
+    initial-size: 1
+    max-wait: 60000
+    min-idle: 1
+    time-between-eviction-runs-millis: 60000
+    min-evictableIdle-time-millis: 300000
+    validation-query: select 1 from dual
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    max-open-prepared-statements: 20
+logback:
+  access:
+    max.history: 7
+    max.file.size: 100MB
+  error:
+    max.history: 7
+    max.file.size: 100MB
+  info:
+    max.history: 7
+    max.file.size: 100MB
+  application:
+    max.history: 7
+    max.file.size: 100MB
+  sql:
+    max.history: 7
+    max.file.size: 100MB
+  console:
+    max.history: 7
+    max.file.size: 100MB

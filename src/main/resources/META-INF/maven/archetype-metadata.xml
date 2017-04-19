@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        name="${rootArtifactId}"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <requiredProperties>
+        <requiredProperty key="version">
+            <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="userName">
+            <defaultValue>ZihoRo</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
+        <fileSet encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>.gitignore</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <modules>
+        <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/webapp</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-dal" dir="__rootArtifactId__-dal" name="${rootArtifactId}-dal">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-core" dir="__rootArtifactId__-core" name="${rootArtifactId}-core">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-client" dir="__rootArtifactId__-client" name="${rootArtifactId}-client">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <excludes>
+                        <exclude>**/*.log</exclude>
+                    </excludes>
+                </fileSet>
+            </fileSets>
+        </module>
+    </modules>
+</archetype-descriptor>
