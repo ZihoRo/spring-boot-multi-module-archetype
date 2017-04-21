@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.shinemo</groupId>
@@ -37,7 +38,7 @@
         <guava-version>19.0</guava-version>
         <mysql-version>5.1.39</mysql-version>
         <druid-version>1.0.16</druid-version>
-        <jackson-datatype-joda-version>2.8.1</jackson-datatype-joda-version>
+        <log4jdbc-version>1.2</log4jdbc-version>
     </properties>
 
     <dependencyManagement>
@@ -78,9 +79,9 @@
                 <version>${druid-version}</version>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-joda</artifactId>
-                <version>${jackson-datatype-joda-version}</version>
+                <groupId>com.googlecode.log4jdbc</groupId>
+                <artifactId>log4jdbc</artifactId>
+                <version>${log4jdbc-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>

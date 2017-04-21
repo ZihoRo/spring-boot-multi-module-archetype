@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.web.controller;
 
+import java.util.Date;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,5 +18,10 @@ public class DemoController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String helloWorld() {
         return "hello world";
+    }
+
+    @RequestMapping(value = "/date", method = RequestMethod.GET)
+    public Date date() {
+        return new Date();
     }
 }
