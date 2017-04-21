@@ -2,7 +2,9 @@ log:
   home: ${log.home}
   level: ${log.level}
   charset: utf-8
-application.name: ${parentArtifactId}
+application:
+  name: ${parentArtifactId}
+  env: ${application.env}
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 # type-aliases-package:
