@@ -1,5 +1,6 @@
 log:
-  home: /data/logs/${parentArtifactId}
+  home: ${log.home}
+  level: ${log.level}
   charset: utf-8
 application.name: ${parentArtifactId}
 mybatis:
@@ -22,6 +23,9 @@ spring:
   http.encoding.force: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
+    url: ${spring.datasource.url}
+    username: {spring.datasource.username}
+    password: {spring.datasource.password}
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     max-active: 20

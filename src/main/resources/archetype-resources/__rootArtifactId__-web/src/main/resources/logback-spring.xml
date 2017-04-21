@@ -8,6 +8,13 @@
     <!--name 是在logback中引用的名字, source是spring的properties名字-->
     <!--<springProfile name="dev,daily,pre">-->
 
+    <property name="logback.access.pattern" value="${logback.access.pattern}"/>
+    <property name="logback.error.pattern" value="${logback.error.pattern}"/>
+    <property name="logback.info.pattern" value="${logback.info.pattern}"/>
+    <property name="logback.application.pattern" value="${logback.application.pattern}"/>
+    <property name="logback.sql.pattern" value="%{logback.sql.pattern}"/>
+    <property name="logback.console.pattern" value="${logback.console.pattern}"/>
+
     <!--</springProfile>-->
     <springProperty scope="context" name="log.home" source="log.home" />
     <springProperty scope="context" name="log.level" source="log.level" />
@@ -15,22 +22,22 @@
     <springProperty scope="context" name="application.name" source="application.name" />
     <springProperty scope="context" name="logback.access.max.history" source="logback.access.max.history" />
     <springProperty scope="context" name="logback.access.max.file.size" source="logback.access.max.file.size" />
-    <springProperty scope="context" name="logback.access.pattern" source="logback.access.pattern" />
+    <!--<springProperty scope="context" name="logback.access.pattern" source="logback.access.pattern" />-->
     <springProperty scope="context" name="logback.error.max.history" source="logback.error.max.history" />
     <springProperty scope="context" name="logback.error.max.file.size" source="logback.error.max.file.size" />
-    <springProperty scope="context" name="logback.error.pattern" source="logback.error.pattern" />
+    <!--<springProperty scope="context" name="logback.error.pattern" source="logback.error.pattern" />-->
     <springProperty scope="context" name="logback.info.max.history" source="logback.info.max.history" />
     <springProperty scope="context" name="logback.info.max.file.size" source="logback.info.max.file.size" />
-    <springProperty scope="context" name="logback.info.pattern" source="logback.info.pattern" />
+    <!--<springProperty scope="context" name="logback.info.pattern" source="logback.info.pattern" />-->
     <springProperty scope="context" name="logback.application.max.history" source="logback.application.max.history" />
     <springProperty scope="context" name="logback.application.max.file.size" source="logback.application.max.file.size" />
-    <springProperty scope="context" name="logback.application.pattern" source="logback.application.pattern" />
+    <!--<springProperty scope="context" name="logback.application.pattern" source="logback.application.pattern" />-->
     <springProperty scope="context" name="logback.sql.max.history" source="logback.sql.max.history" />
     <springProperty scope="context" name="logback.sql.max.file.size" source="logback.sql.max.file.size" />
-    <springProperty scope="context" name="logback.sql.pattern" source="logback.sql.pattern" />
+    <!--<springProperty scope="context" name="logback.sql.pattern" source="logback.sql.pattern" />-->
     <springProperty scope="context" name="logback.console.max.history" source="logback.console.max.history" />
     <springProperty scope="context" name="logback.console.max.file.size" source="logback.console.max.file.size" />
-    <springProperty scope="context" name="logback.console.pattern" source="logback.console.pattern" />
+    <!--<springProperty scope="context" name="logback.console.pattern" source="logback.console.pattern" />-->
 
     <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${symbol_dollar}{log.home}/access.log</file>
