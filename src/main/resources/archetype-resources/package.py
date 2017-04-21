@@ -1,5 +1,6 @@
 import os,sys
 
+
 def package():
     size = len(sys.argv)
     if size < 2:
@@ -9,6 +10,7 @@ def package():
     else:
         os.system("git pull")
         os.system("mvn clean package -Dmaven.test.skip=true -U -P" + sys.argv[1])
+
 
 if __name__ == "__main__":
     package()
