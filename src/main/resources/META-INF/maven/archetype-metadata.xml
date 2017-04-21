@@ -11,15 +11,18 @@
         <requiredProperty key="userName">
             <defaultValue>ZihoRo</defaultValue>
         </requiredProperty>
+        <requiredProperty key="gitignore">
+            <defaultValue>.gitignore</defaultValue>
+        </requiredProperty>
         <requiredProperty key="today">
             <!--<defaultValue>2013-01-04</defaultValue>-->
         </requiredProperty>
     </requiredProperties>
     <fileSets>
-        <fileSet encoding="UTF-8">
+        <fileSet filtered="true" encoding="UTF-8">
             <directory></directory>
             <includes>
-                <include>.gitignore</include>
+                <include>__gitignore__</include>
                 <include>clean.py</include>
                 <include>deploy.py</include>
                 <include>eclipse.py</include>
@@ -44,7 +47,6 @@
                 </fileSet>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/test/java</directory>
-
                     <includes>
                         <include>**/*.java</include>
                     </includes>
