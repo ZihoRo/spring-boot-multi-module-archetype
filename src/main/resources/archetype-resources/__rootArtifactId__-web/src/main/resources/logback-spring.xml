@@ -9,6 +9,8 @@
     <!--name 是在logback中引用的名字, value 里的占位符是maven打包时替换的-->
     <!--<property name="logback.access.pattern" value="${logback.access.pattern}"/>-->
 
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
     <springProperty scope="context" name="log.home" source="log.home" />
     <springProperty scope="context" name="log.level" source="log.level" />
     <springProperty scope="context" name="log.charset" source="application.charset" defaultValue="utf-8" />
