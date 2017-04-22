@@ -11,7 +11,7 @@
 
     <springProperty scope="context" name="log.home" source="log.home" />
     <springProperty scope="context" name="log.level" source="log.level" />
-    <springProperty scope="context" name="log.charset" source="log.charset" defaultValue="utf-8" />
+    <springProperty scope="context" name="log.charset" source="application.charset" defaultValue="utf-8" />
     <springProperty scope="context" name="application.name" source="application.name" />
     <springProperty scope="context" name="logback.access.max.history" source="logback.access.max.history" defaultValue="3" />
     <springProperty scope="context" name="logback.access.max.file.size" source="logback.access.max.file.size" defaultValue="100MB" />
