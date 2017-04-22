@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.test.core;
 
-import ${package}.dal.DemoCore;
+import ${package}.core.DemoCore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
