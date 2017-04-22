@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/demo")
 public class DemoController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, param = {"!name"})
+    @RequestMapping(value = "/hello", method = RequestMethod.GET, params = {"!name"})
     public String helloWorld() {
         return "hello world";
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, param = {"name"})
+    @RequestMapping(value = "/hello", method = RequestMethod.GET, params = {"name"})
     public String hello(@RequestParam("name") String name) {
         return String.format("%s, 你好", name);
     }

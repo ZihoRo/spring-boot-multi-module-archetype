@@ -13,11 +13,11 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * Created by ${userName} on ${today}.
  */
 @SpringBootApplication(scanBasePackages = {
-        "com.shinemo.demo.web.controller",
-        "com.shinemo.demo.web.config",
-        "com.shinemo.demo.core.service.impl"
+        "${package}.web.controller",
+        "${package}.web.config",
+        "${package}.core.service.impl"
 })
-@MapperScan("com.shinemo.demo.dal.mapper")
+@MapperScan("${package}.dal.mapper")
 public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override

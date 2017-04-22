@@ -3,20 +3,27 @@
 #set( $symbol_escape = '\' )
 package ${package}.test.web;
 
+import ${package}.web.controller.DemoController;
+import ${package}.web.init.ServletInitializer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+
 /**
  * Created by ${userName} on ${today}.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {ServletInitializer.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoWebTest {
+
+    @Resource
+    private DemoController demoController;
 
     @Test
     public void test(){
-
+        System.out.println(demoController);
     }
 }
