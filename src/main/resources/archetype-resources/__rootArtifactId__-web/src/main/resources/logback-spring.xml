@@ -3,19 +3,12 @@
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false" scan="true" second="60 seconds">
-    <!--<springProperty scope="context" name="fluentHost" source="myapp.fluentd.host"/>-->
-    <!--logback-spring.xml-->
     <!--name 是在logback中引用的名字, source是spring的properties名字-->
-    <!--<springProfile name="dev,daily,pre">-->
+    <!--<springProperty scope="context" name="application.name" source="application.name"/>-->
 
+    <!--name 是在logback中引用的名字, value 里的占位符是maven打包时替换的-->
     <!--<property name="logback.access.pattern" value="${logback.access.pattern}"/>-->
-    <!--<property name="logback.error.pattern" value="${logback.error.pattern}"/>-->
-    <!--<property name="logback.info.pattern" value="${logback.info.pattern}"/>-->
-    <!--<property name="logback.application.pattern" value="${logback.application.pattern}"/>-->
-    <!--<property name="logback.sql.pattern" value="${logback.sql.pattern}"/>-->
-    <!--<property name="logback.console.pattern" value="${logback.console.pattern}"/>-->
 
-    <!--</springProfile>-->
     <springProperty scope="context" name="log.home" source="log.home" />
     <springProperty scope="context" name="log.level" source="log.level" />
     <springProperty scope="context" name="log.charset" source="log.charset" defaultValue="utf-8" />
