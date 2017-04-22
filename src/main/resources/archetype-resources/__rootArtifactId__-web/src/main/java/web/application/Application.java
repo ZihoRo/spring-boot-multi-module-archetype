@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.web.init;
+package ${package}.web.application;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -18,15 +18,17 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
         "${package}.core.service.impl"
 })
 @MapperScan("${package}.dal.mapper")
-public class ServletInitializer extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
+
+    private static final Class<Application> application = Application.class;
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(ServletInitializer.class);
+        return application.sources(Application.application);
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(ServletInitializer.class, args);
+        SpringApplication.run(application, args);
     }
 
 }

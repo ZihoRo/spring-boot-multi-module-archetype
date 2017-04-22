@@ -28,7 +28,7 @@
     </developers>
 
     <properties>
-        <start-class>${package}.web.init.ServletInitializer</start-class>
+        <start-class>${package}.web.application.Application</start-class>
     </properties>
 
     <dependencies>
@@ -83,7 +83,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>${start-class}</mainClass>
-                    <layout>JAR</layout>
                 </configuration>
                 <executions>
                     <execution>

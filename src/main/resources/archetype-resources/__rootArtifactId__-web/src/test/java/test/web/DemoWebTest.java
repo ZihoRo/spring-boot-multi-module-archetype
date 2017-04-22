@@ -4,7 +4,7 @@
 package ${package}.test.web;
 
 import ${package}.web.controller.DemoController;
-import ${package}.web.init.ServletInitializer;
+import ${package}.web.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * Created by ${userName} on ${today}.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ServletInitializer.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoWebTest {
 
     @Resource
