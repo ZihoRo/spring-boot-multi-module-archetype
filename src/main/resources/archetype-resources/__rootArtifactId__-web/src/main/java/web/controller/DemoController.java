@@ -23,7 +23,7 @@ public class DemoController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET, params = {"name"})
     public String hello(@RequestParam("name") String name) {
-        return String.format("%s, 你好", name);
+        return String.format("%s，你好", name);
     }
 
     @RequestMapping(value = "/date", method = RequestMethod.GET)
