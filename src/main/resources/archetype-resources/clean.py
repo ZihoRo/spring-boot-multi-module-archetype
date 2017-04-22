@@ -7,7 +7,7 @@ def eclipse_clean():
 
 
 def idea_clean():
-    rm("./", ["*.iml", ".idea"], True)
+    rm("./", ["*.iml", "*.ipr", "*.iws", ".idea_modules", ".idea"], True)
 
 
 def rm(root, patterns, recursive=False):
@@ -25,6 +25,12 @@ def rm(root, patterns, recursive=False):
                         os.rmdir(os.path.join(path, dirname))
                 except OSError:
                     print("Directory not empty:'%s'" % os.path.join(path, dirname))
+
+
+def clean():
+
+    for path, sub_dirs, files in os.walk(root):
+
 
 
 if __name__ == "__main__":
