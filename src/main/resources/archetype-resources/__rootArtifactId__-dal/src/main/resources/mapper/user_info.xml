@@ -54,7 +54,7 @@
             ${symbol_pound}{name,jdbcType=VARCHAR},
         </if>
         <if test="age!=null">
-            ${symbol_pound}{age,jdbcType=INTEGET},
+            ${symbol_pound}{age,jdbcType=INTEGER},
         </if>
         )
     </insert>
