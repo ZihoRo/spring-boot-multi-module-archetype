@@ -109,7 +109,7 @@
         <profile>
             <id>dev</id>
             <properties>
-                <deploy.env>dev</deploy.env>
+                <spring.profiles.active>dev</spring.profiles.active>
                 <application.charset>${project.build.sourceEncoding}</application.charset>
             </properties>
             <activation>
@@ -119,21 +119,21 @@
         <profile>
             <id>daily</id>
             <properties>
-                <deploy.env>daily</deploy.env>
+                <spring.profiles.active>daily</spring.profiles.active>
                 <application.charset>${project.build.sourceEncoding}</application.charset>
             </properties>
         </profile>
         <profile>
             <id>online</id>
             <properties>
-                <deploy.env>online</deploy.env>
+                <spring.profiles.active>online</spring.profiles.active>
                 <application.charset>${project.build.sourceEncoding}</application.charset>
             </properties>
         </profile>
         <profile>
             <id>pre</id>
             <properties>
-                <deploy.env>pre</deploy.env>
+                <spring.profiles.active>pre</spring.profiles.active>
                 <application.charset>${project.build.sourceEncoding}</application.charset>
             </properties>
         </profile>
