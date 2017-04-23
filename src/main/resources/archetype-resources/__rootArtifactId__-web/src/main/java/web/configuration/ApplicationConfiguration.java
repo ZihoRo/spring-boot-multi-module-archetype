@@ -8,6 +8,7 @@ import ${package}.web.filter.DemoFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -18,6 +19,7 @@ import javax.servlet.Filter;
  * Created by ${userName} on ${today}.
  */
 @Configuration
+@ImportResource(locations = {"classpath*:${parentArtifactId}-core.xml"})
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 
     /**

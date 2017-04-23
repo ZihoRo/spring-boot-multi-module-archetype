@@ -12,12 +12,10 @@ import org.springframework.boot.autoconfigure.validation.ValidationAutoConfigura
 import org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  * Created by ${userName} on ${today}.
  */
-@ImportResource(locations = {"classpath*:${parentArtifactId}-core.xml"})
 @MapperScan(basePackages = {"${package}.dal.mapper"})
 @SpringBootApplication(scanBasePackages = {
         "${package}.web.configuration",
