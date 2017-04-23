@@ -40,7 +40,7 @@ ${symbol_pound} *** ResponseBody jackson配置 ***
     default-property-inclusion: "NON_EMPTY"
 ${symbol_pound} *** datasource配置 ***
   datasource:
-${symbol_pound}   driver-class-name: "com.mysql.jdbc.Driver"
+${symbol_pound}    driver-class-name: "com.mysql.jdbc.Driver"
     driver-class-name: "net.sf.log4jdbc.DriverSpy"
     type: "com.alibaba.druid.pool.DruidDataSource"
     filters: "stat"

@@ -32,7 +32,7 @@ ${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp
     url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
     username: "root"
     password: "tiger"
-${symbol_pound}   driver-class-name: "com.mysql.jdbc.Driver"
+${symbol_pound}    driver-class-name: "com.mysql.jdbc.Driver"
     driver-class-name: "net.sf.log4jdbc.DriverSpy"
     type: "com.alibaba.druid.pool.DruidDataSource"
     filters: "stat"
