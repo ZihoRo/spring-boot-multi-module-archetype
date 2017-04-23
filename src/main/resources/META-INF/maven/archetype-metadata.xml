@@ -26,6 +26,7 @@
                 <include>clean.py</include>
                 <include>deploy.py</include>
                 <include>eclipse.py</include>
+                <include>git.py</include>
                 <include>package.py</include>
             </includes>
         </fileSet>
