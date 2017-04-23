@@ -7,7 +7,7 @@
     <!--<springProperty scope="context" name="application.name" source="application.name"/>-->
 
     <!--name 是在logback中引用的名字, value 里的占位符是maven打包时替换的-->
-    <!--<property name="logback.access.pattern" value="${symbol_dollar}{logback.access.pattern}"/>-->
+    <!--<property name="spring.logback.access.pattern" value="${symbol_dollar}{spring.logback.access.pattern}"/>-->
 
     <!--如需使用彩色日志，引入此文件，或拷贝该文件的conversionRule标签配置项，彩色日志可能会串行-->
     <!--<include resource="org/springframework/boot/logging/logback/defaults.xml" />-->
@@ -16,38 +16,38 @@
     <springProperty scope="context" name="log.level" source="log.level" />
     <springProperty scope="context" name="log.charset" source="application.charset" defaultValue="utf-8" />
     <springProperty scope="context" name="application.name" source="application.name" />
-    <springProperty scope="context" name="logback.access.max.history" source="logback.access.max.history" defaultValue="3" />
-    <springProperty scope="context" name="logback.access.max.file.size" source="logback.access.max.file.size" defaultValue="100MB" />
-    <springProperty scope="context" name="logback.access.pattern" source="logback.access.pattern" />
-    <springProperty scope="context" name="logback.error.max.history" source="logback.error.max.history" defaultValue="7" />
-    <springProperty scope="context" name="logback.error.max.file.size" source="logback.error.max.file.size" defaultValue="100MB" />
-    <springProperty scope="context" name="logback.error.pattern" source="logback.error.pattern" />
-    <springProperty scope="context" name="logback.info.max.history" source="logback.info.max.history" defaultValue="3" />
-    <springProperty scope="context" name="logback.info.max.file.size" source="logback.info.max.file.size" defaultValue="100MB" />
-    <springProperty scope="context" name="logback.info.pattern" source="logback.info.pattern" />
-    <springProperty scope="context" name="logback.application.max.history" source="logback.application.max.history" defaultValue="3" />
-    <springProperty scope="context" name="logback.application.max.file.size" source="logback.application.max.file.size" defaultValue="100MB" />
-    <springProperty scope="context" name="logback.application.pattern" source="logback.application.pattern" />
-    <springProperty scope="context" name="logback.sql.max.history" source="logback.sql.max.history" defaultValue="7" />
-    <springProperty scope="context" name="logback.sql.max.file.size" source="logback.sql.max.file.size" defaultValue="100MB" />
-    <springProperty scope="context" name="logback.sql.pattern" source="logback.sql.pattern" />
-    <springProperty scope="context" name="logback.console.pattern" source="logback.console.pattern" />
+    <springProperty scope="context" name="spring.logback.access.max.history" source="spring.logback.access.max.history" defaultValue="3" />
+    <springProperty scope="context" name="spring.logback.access.max.file.size" source="spring.logback.access.max.file.size" defaultValue="100MB" />
+    <springProperty scope="context" name="spring.logback.access.pattern" source="spring.logback.access.pattern" />
+    <springProperty scope="context" name="spring.logback.error.max.history" source="spring.logback.error.max.history" defaultValue="7" />
+    <springProperty scope="context" name="spring.logback.error.max.file.size" source="spring.logback.error.max.file.size" defaultValue="100MB" />
+    <springProperty scope="context" name="spring.logback.error.pattern" source="spring.logback.error.pattern" />
+    <springProperty scope="context" name="spring.logback.info.max.history" source="spring.logback.info.max.history" defaultValue="3" />
+    <springProperty scope="context" name="spring.logback.info.max.file.size" source="spring.logback.info.max.file.size" defaultValue="100MB" />
+    <springProperty scope="context" name="spring.logback.info.pattern" source="spring.logback.info.pattern" />
+    <springProperty scope="context" name="spring.logback.application.max.history" source="spring.logback.application.max.history" defaultValue="3" />
+    <springProperty scope="context" name="spring.logback.application.max.file.size" source="spring.logback.application.max.file.size" defaultValue="100MB" />
+    <springProperty scope="context" name="spring.logback.application.pattern" source="spring.logback.application.pattern" />
+    <springProperty scope="context" name="spring.logback.sql.max.history" source="spring.logback.sql.max.history" defaultValue="7" />
+    <springProperty scope="context" name="spring.logback.sql.max.file.size" source="spring.logback.sql.max.file.size" defaultValue="100MB" />
+    <springProperty scope="context" name="spring.logback.sql.pattern" source="spring.logback.sql.pattern" />
+    <springProperty scope="context" name="spring.logback.console.pattern" source="spring.logback.console.pattern" />
 
     <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${symbol_dollar}{log.home}/access.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${symbol_dollar}{log.home}/access.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
-            <maxHistory>${symbol_dollar}{logback.access.max.history}</maxHistory>
+            <maxHistory>${symbol_dollar}{spring.logback.access.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${symbol_dollar}{logback.access.max.file.size}</maxFileSize>
+                <maxFileSize>${symbol_dollar}{spring.logback.access.max.file.size}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>info</level>
         </filter>
         <encoder>
-            <pattern>${symbol_dollar}{logback.access.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.access.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
@@ -56,16 +56,16 @@
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.error.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
-            <maxHistory>${symbol_dollar}{logback.error.max.history}</maxHistory>
+            <maxHistory>${symbol_dollar}{spring.logback.error.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${symbol_dollar}{logback.error.max.file.size}</maxFileSize>
+                <maxFileSize>${symbol_dollar}{spring.logback.error.max.file.size}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>error</level>
         </filter>
         <encoder>
-            <pattern>${symbol_dollar}{logback.error.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.error.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
@@ -75,16 +75,16 @@
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.info.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
-            <maxHistory>${symbol_dollar}{logback.info.max.history}</maxHistory>
+            <maxHistory>${symbol_dollar}{spring.logback.info.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${symbol_dollar}{logback.info.max.file.size}</maxFileSize>
+                <maxFileSize>${symbol_dollar}{spring.logback.info.max.file.size}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>info</level>
         </filter>
         <encoder>
-            <pattern>${symbol_dollar}{logback.info.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.info.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
@@ -94,16 +94,16 @@
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
-            <maxHistory>${symbol_dollar}{logback.application.max.history}</maxHistory>
+            <maxHistory>${symbol_dollar}{spring.logback.application.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${symbol_dollar}{logback.application.max.file.size}</maxFileSize>
+                <maxFileSize>${symbol_dollar}{spring.logback.application.max.file.size}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>${symbol_dollar}{log.level}</level>
         </filter>
         <encoder>
-            <pattern>${symbol_dollar}{logback.application.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.application.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
@@ -113,23 +113,23 @@
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${symbol_dollar}{log.home}/sql.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
-            <maxHistory>${symbol_dollar}{logback.sql.max.history}</maxHistory>
+            <maxHistory>${symbol_dollar}{spring.logback.sql.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>${symbol_dollar}{logback.sql.max.file.size}</maxFileSize>
+                <maxFileSize>${symbol_dollar}{spring.logback.sql.max.file.size}</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>${symbol_dollar}{log.level}</level>
         </filter>
         <encoder>
-            <pattern>${symbol_dollar}{logback.sql.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.sql.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${symbol_dollar}{logback.console.pattern}</pattern>
+            <pattern>${symbol_dollar}{spring.logback.console.pattern}</pattern>
             <charset>${symbol_dollar}{log.charset}</charset>
         </encoder>
     </appender>
