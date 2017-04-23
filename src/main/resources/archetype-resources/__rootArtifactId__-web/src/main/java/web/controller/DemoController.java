@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.web.controller;
 
+import ${package}.core.DemoCore;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
