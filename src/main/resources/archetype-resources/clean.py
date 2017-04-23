@@ -30,12 +30,6 @@ def rm(root, patterns, recursive=False):
                     print("Directory not empty:'%s'" % os.path.join(path, dirname))
 
 
-def clean():
-
-    for path, sub_dirs, files in os.walk(root):
-
-
-
 if __name__ == "__main__":
     idea_clean()
     eclipse_clean()
