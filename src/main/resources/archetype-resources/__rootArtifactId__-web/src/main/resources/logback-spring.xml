@@ -9,7 +9,7 @@
     <!--name 是在logback中引用的名字, value 里的占位符是maven打包时替换的-->
     <!--<property name="logback.access.pattern" value="${logback.access.pattern}"/>-->
 
-    <!--如需使用彩色日志，引入此文件，或拷贝该文件的conversionRule标签配置项-->
+    <!--如需使用彩色日志，引入此文件，或拷贝该文件的conversionRule标签配置项，彩色日志可能会串行-->
     <!--<include resource="org/springframework/boot/logging/logback/defaults.xml" />-->
 
     <springProperty scope="context" name="log.home" source="log.home" />
