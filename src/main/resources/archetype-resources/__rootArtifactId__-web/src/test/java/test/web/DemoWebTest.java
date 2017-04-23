@@ -1,6 +1,6 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
+#set($symbol_pound='#')
+#set($symbol_dollar='$')
+#set($symbol_escape='\' )
 package ${package}.test.web;
 
 import ${package}.web.controller.DemoController;
@@ -16,14 +16,18 @@ import javax.annotation.Resource;
  * Created by ${userName} on ${today}.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+        value = {"server.port=8080"},
+        classes = {Application.class},
+        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT
+)
 public class DemoWebTest {
 
     @Resource
     private DemoController demoController;
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println(demoController);
     }
 }

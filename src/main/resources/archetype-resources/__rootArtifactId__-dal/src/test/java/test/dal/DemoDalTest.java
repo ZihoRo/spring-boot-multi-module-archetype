@@ -15,7 +15,9 @@ import javax.annotation.Resource;
  * Created by ${userName} on ${today}.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {DemoDal.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+        classes = {DemoDal.class}
+)
 public class DemoDalTest {
 
     @Resource

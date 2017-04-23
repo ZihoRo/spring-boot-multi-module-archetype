@@ -7,4 +7,5 @@ package ${package}.client;
  * Created by ${userName} on ${today}.
  */
 public class DemoClient {
+
 }
