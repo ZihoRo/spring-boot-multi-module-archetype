@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * Created by ${userName} on ${today}.
  */
-@ImportResource(locations = {"classpath*:demo-core.xml"})
+@ImportResource(locations = {"classpath*:${parentArtifactId}-core.xml"})
 @MapperScan(basePackages = {"${package}.dal.mapper"})
 @SpringBootApplication(scanBasePackages = {
         "${package}.web.configuration",
