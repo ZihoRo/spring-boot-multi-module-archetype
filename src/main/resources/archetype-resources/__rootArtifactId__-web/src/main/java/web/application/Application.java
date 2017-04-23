@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.web.application;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
@@ -16,7 +15,6 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 /**
  * Created by ${userName} on ${today}.
  */
-@MapperScan(basePackages = {"${package}.dal.mapper"})
 @SpringBootApplication(scanBasePackages = {
         "${package}.web.configuration",
         "${package}.web.controller",
