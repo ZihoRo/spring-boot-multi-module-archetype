@@ -19,7 +19,10 @@ import org.springframework.context.annotation.ImportResource;
  */
 @ImportResource(locations = {"classpath*:demo-core.xml"})
 @MapperScan(basePackages = {"com.shinemo.demo.dal.mapper"})
-@SpringBootApplication(exclude = {
+@SpringBootApplication(scanBasePackages = {
+        "${package}.web.configuration",
+        "${package}.web.controller",
+}, exclude = {
         /**
          * application.(properties|yaml) 配置文件的自动配置类
          */
