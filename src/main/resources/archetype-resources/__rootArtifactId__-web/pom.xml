@@ -12,7 +12,6 @@
     <packaging>war</packaging>
     <version>${project.parent.version}</version>
     <name>${parentArtifactId}-web</name>
-    <url>http://maven.apache.org</url>
 
     <organization>
         <name>${project.parent.organization.name}</name>
