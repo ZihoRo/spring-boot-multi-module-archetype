@@ -1,0 +1,73 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound} ************************* 自定义配置 *************************
+${symbol_pound} *** 应用名称 ***
+application:
+  name: "${parentArtifactId}"
+${symbol_pound} *** 应用编码 ***
+  charset: "${application.charset}"
+${symbol_pound} *** logback自定义配置 ***
+spring.logback: 
+  access.max.history: 3
+  access.max.file.size: "100MB"
+  error.max.history: 7
+  error.max.file.size: "100MB"
+  info.max.history: 3
+  info.max.file.size: "100MB"
+  application.max.history: 3
+  application.max.file.size: "100MB"
+  sql.max.history: 7
+  sql.max.file.size: "100MB"
+
+${symbol_pound} ************************* 第三方配置 *************************
+spring:
+  profiles:
+    active: "${symbol_dollar}{spring.profiles.active}"
+  application:
+    name: "${parentArtifactId}"
+${symbol_pound} *** http配置 ***
+  http:
+    encoding.force: true
+${symbol_pound} *** mvc配置 ***
+  mvc:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+${symbol_pound} *** ResponseBody jackson配置 ***
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: "GMT+08:00"
+    serialization.write-dates-as-timestamps: false
+    default-property-inclusion: "NON_EMPTY"
+${symbol_pound} *** datasource配置 ***
+  datasource:
+${symbol_pound}   driver-class-name: "com.mysql.jdbc.Driver"
+    driver-class-name: "net.sf.log4jdbc.DriverSpy"
+    type: "com.alibaba.druid.pool.DruidDataSource"
+    filters: "stat"
+    max-active: 20
+    initial-size: 1
+    max-wait: 60000
+    min-idle: 1
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: "select 1 from dual"
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    max-open-prepared-statements: 20
+${symbol_pound} *** web配置 ***
+server:
+  port: 8080
+  context-path: "/${parentArtifactId}"
+  display-name: "${parentArtifactId}"
+${symbol_pound} *** mybatis配置 ***
+mybatis:
+  mapper-locations: "classpath:mapper/*.xml"
+  config-location: "classpath:mybatis-config.xml"
+  type-aliases-package: "${package}.client.user.domain,${package}.client.user.query"
+${symbol_pound} *** log4jdbc配置 ***
+log4jdbc:
+  dump.sql.addsemicolon: true
+  sqltiming.error.threshold: 1000
+  sqltiming.warn.threshold: 500

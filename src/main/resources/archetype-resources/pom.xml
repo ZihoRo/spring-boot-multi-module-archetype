@@ -2,11 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.shinemo</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.0</version>
-    </parent>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
@@ -36,7 +31,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot-version>1.5.2.RELEASE</spring-boot-version>
-        <mybatis-spring-boot-version>1.1.1</mybatis-spring-boot-version>
+        <mybatis-spring-boot-version>1.2.1</mybatis-spring-boot-version>
         <guava-version>19.0</guava-version>
         <mysql-version>5.1.39</mysql-version>
         <druid-version>1.0.16</druid-version>
@@ -88,6 +83,11 @@
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter-test</artifactId>
                 <version>${mybatis-spring-boot-version}</version>
             </dependency>
             <dependency>

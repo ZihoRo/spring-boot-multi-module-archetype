@@ -1,0 +1,29 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_pound} ************************* 自定义配置 *************************
+${symbol_pound} *** 应用打包类型 ***
+application.env: 1
+${symbol_pound} *** log自定义配置 ***
+log:
+  home: "/data/logs/${parentArtifactId}"
+  level: "debug"
+${symbol_pound} *** logback自定义配置 ***
+spring.logback: 
+  access.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  error.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  info.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  application.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  sql.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  console.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+
+${symbol_pound} ************************* 第三方配置 *************************
+${symbol_pound} *** datasource配置 ***
+spring:
+  datasource:
+${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+    username: "root"
+    password: "tiger"
+${symbol_pound} 日志格式中 clr 占位符生效配置
+  output.ansi.enabled: "NEVER"
