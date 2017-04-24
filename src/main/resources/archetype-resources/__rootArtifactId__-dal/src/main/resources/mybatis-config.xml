@@ -13,6 +13,11 @@
         <setting name="logImpl" value="SLF4J"/>
     </settings>
 
+    <typeAliases>
+        <package name="${package}.client.user.domain"/>
+        <package name="${package}.client.user.query"/>
+    </typeAliases>
+
     <typeHandlers>
 
     </typeHandlers>

@@ -52,7 +52,6 @@ ${symbol_pound} *** mybatis配置 ***
 mybatis:
   mapper-locations: "classpath*:mapper/*.xml"
   config-location: "classpath:mybatis-config.xml"
-  type-aliases-package: "${package}.client.user.domain,${package}.client.user.query"
 ${symbol_pound} *** log4jdbc配置 ***
 log4jdbc:
   dump.sql.addsemicolon: true

@@ -4,7 +4,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${package}.dal.mapper.UserInfoMapper">
-    <resultMap type="${package}.client.user.domain.UserInfoDomain" id="value">
+    <resultMap type="userInfoDomain" id="value">
         <id column="id" property="id" javaType="java.lang.Long" jdbcType="BIGINT" />
         <result column="name" property="name" javaType="java.lang.String" jdbcType="VARCHAR" />
         <result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -33,7 +33,7 @@
             </otherwise>
         </choose>
     </sql>
-    <insert id="insert" parameterType="${package}.client.user.domain.UserInfoDomain">
+    <insert id="insert" parameterType="userInfoDomain">
         insert into
         <include refid="table"/>
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -60,7 +60,7 @@
             </if>
         </trim>
     </insert>
-    <select id="find" parameterType="${package}.client.user.query.UserInfoQuery" resultMap="value">
+    <select id="find" parameterType="userInfoQuery" resultMap="value">
         select
         <include refid="columns"/>
         from
@@ -70,7 +70,7 @@
         </where>
     </select>
 
-    <select id="count" parameterType="${package}.client.user.query.UserInfoQuery" resultType="long">
+    <select id="count" parameterType="userInfoQuery" resultType="long">
         select count(*) from
         <include refid="table"/>
         <where>
@@ -78,7 +78,7 @@
         </where>
     </select>
 
-    <select id="get" parameterType="${package}.client.user.query.UserInfoQuery" resultMap="value">
+    <select id="get" parameterType="userInfoQuery" resultMap="value">
         select
         <include refid="columns"/>
         from
@@ -89,7 +89,7 @@
         limit 1
     </select>
 
-    <update id="update" parameterType="${package}.client.user.domain.UserInfoDomain">
+    <update id="update" parameterType="userInfoDomain">
         update
         <include refid="table"/>
         <set>
@@ -106,7 +106,7 @@
             </if>
         </where>
     </update>
-    <delete id="delete" parameterType="${package}.client.user.domain.UserInfoDomain">
+    <delete id="delete" parameterType="userInfoDomain">
         delete from
         <include refid="table"/>
         <where>
