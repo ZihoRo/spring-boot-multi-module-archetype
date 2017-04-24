@@ -1,9 +1,10 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.test.core;
+package ${package}.test.core.user.service;
 
-import ${package}.core.DemoCore;
+import ${package}.core.user.service.UserInfoService;
+import ${package}.core.user.service.impl.UserInfoServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,15 +17,15 @@ import javax.annotation.Resource;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = {DemoCore.class}
+        classes = {UserInfoServiceImpl.class}
 )
-public class DemoCoreTest {
+public class UserInfoServiceTest {
 
     @Resource
-    private DemoCore demoCore;
+    private UserInfoService userInfoService;
 
     @Test
     public void test(){
-        System.out.println(demoCore);
+        System.out.println(userInfoService);
     }
 }

@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.client.user.query;
 
+import ${package}.client.common.query.Query;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserInfoQuery {
+public class UserInfoQuery extends Query {
     private Long id;
     private String name;
     private Integer age;

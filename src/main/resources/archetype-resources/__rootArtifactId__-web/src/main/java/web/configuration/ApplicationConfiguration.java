@@ -20,7 +20,7 @@ import javax.servlet.Filter;
  * Created by ${userName} on ${today}.
  */
 @Configuration
-@MapperScan(basePackages = {"${package}.dal.mapper"})
+@MapperScan(basePackages = {"${package}.dal.user.mapper"})
 @ImportResource(locations = {"classpath*:${parentArtifactId}-core.xml"})
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 

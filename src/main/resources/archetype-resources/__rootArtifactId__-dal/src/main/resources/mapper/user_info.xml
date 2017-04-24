@@ -68,6 +68,15 @@
         <where>
             <include refid="conditions"/>
         </where>
+        <if test="orderByEnable and orderByList != null and orderByList.size() > 0">
+            order by
+            <foreach collection="orderByList" item="orderBy" separator=",">
+                ${symbol_pound}{orderBy.column} ${symbol_pound}{orderBy.sort}
+            </foreach>
+        </if>
+        <if test="pageEnable">
+            limit ${symbol_pound}{startRow}, ${symbol_pound}{pageSize}
+        </if>
     </select>
 
     <select id="count" parameterType="userInfoQuery" resultType="long">

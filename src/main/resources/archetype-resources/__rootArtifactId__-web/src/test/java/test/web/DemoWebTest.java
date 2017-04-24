@@ -3,7 +3,7 @@
 #set($symbol_escape='\' )
 package ${package}.test.web;
 
-import ${package}.web.controller.DemoController;
+import ${package}.web.controller.UserInfoController;
 import ${package}.web.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,10 +24,10 @@ import javax.annotation.Resource;
 public class DemoWebTest {
 
     @Resource
-    private DemoController demoController;
+    private UserInfoController userInfoController;
 
     @Test
     public void test() {
-        System.out.println(demoController);
+        System.out.println(userInfoController);
     }
 }

@@ -4,5 +4,5 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 不要在xml配置mvc:annotation相关配置，否则会导致自定义的Interceptor等无法生效 -->
-    <context:component-scan base-package="${package}.core"/>
+    <context:component-scan base-package="${package}.core,${package}.dal.user.wrapper"/>
 </beans>
