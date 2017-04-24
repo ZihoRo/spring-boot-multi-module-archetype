@@ -22,12 +22,6 @@ def git_push():
 
 
 if __name__ == "__main__":
-    size = len(sys.argv)
-    if size < 2:
-        print("Please enter the commit message")
-    elif size > 2:
-        print("Only one parameter will be received.")
-    else:
-        git_add_all()
-        git_commit_message()
+    git_add_all()
+    git_commit_message()
     git_push()
