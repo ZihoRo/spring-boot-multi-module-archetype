@@ -1,11 +1,11 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.test.dal.mapper;
+package ${package}.test.dal.user.mapper;
 
 import ${package}.client.user.domain.UserInfoDomain;
 import ${package}.client.user.query.UserInfoQuery;
-import ${package}.dal.mapper.UserInfoMapper;
+import ${package}.dal.user.mapper.UserInfoMapper;
 import ${package}.test.dal.ApplicationTest;
 import org.junit.Assert;
 import org.junit.Test;
