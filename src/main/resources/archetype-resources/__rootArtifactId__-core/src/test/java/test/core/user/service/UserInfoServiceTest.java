@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.test.core.user.service;
 
+import ${package}.core.ApplicationTest;
 import ${package}.core.user.service.UserInfoService;
 import ${package}.core.user.service.impl.UserInfoServiceImpl;
 import org.junit.Test;
@@ -17,7 +18,7 @@ import javax.annotation.Resource;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = {UserInfoServiceImpl.class}
+        classes = {ApplicationTest.class}
 )
 public class UserInfoServiceTest {
 

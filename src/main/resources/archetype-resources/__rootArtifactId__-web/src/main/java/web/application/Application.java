@@ -16,6 +16,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * Created by ${userName} on ${today}.
  */
 @SpringBootApplication(scanBasePackages = {
+        "${package}.dal.user.wrapper",
         "${package}.web.configuration",
         "${package}.web.controller",
 })
