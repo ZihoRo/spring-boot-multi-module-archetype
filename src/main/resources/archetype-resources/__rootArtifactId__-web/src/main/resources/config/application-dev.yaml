@@ -9,7 +9,7 @@ log:
   home: "/data/logs/${parentArtifactId}"
   level: "debug"
 ${symbol_pound} *** logback自定义配置 ***
-spring.logback: 
+spring.logback:
   access.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
   error.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
   info.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
@@ -27,3 +27,28 @@ ${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp
     password: "tiger"
 ${symbol_pound} 日志格式中 clr 占位符生效配置
   output.ansi.enabled: "ALWAYS"
+  jmx:
+#    jmx 是否开启
+    enabled: false
+  http:
+#      是否开启上传文件
+    multipart:
+      enabled: false
+  mvc:
+    formcontent:
+#      是否接收 put 请求
+      putfilter:
+        enabled: false
+  autoconfigure:
+      exclude:
+        - "org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration"
+        - "org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration"
+        - "org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration"
+        - "org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.web.GsonHttpMessageConvertersConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration"
+${symbol_pound}        - "org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration"

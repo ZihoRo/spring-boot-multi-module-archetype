@@ -36,31 +36,33 @@
     <insert id="insert" parameterType="${package}.client.user.domain.UserInfoDomain">
         insert into
         <include refid="table"/>
-        (
-        <if test="id!=null">
-            id,
-        </if>
-        <if test="name!=null">
-            name,
-        </if>
-        <if test="age!=null">
-            age,
-        </if>
-        ) values (
-        <if test="id!=null">
-            ${symbol_pound}{id,jdbcType=INTEGER},
-        </if>
-        <if test="name!=null">
-            ${symbol_pound}{name,jdbcType=VARCHAR},
-        </if>
-        <if test="age!=null">
-            ${symbol_pound}{age,jdbcType=INTEGER},
-        </if>
-        )
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id!=null">
+                id,
+            </if>
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="age!=null">
+                age,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id!=null">
+                ${symbol_pound}{id,jdbcType=BIGINT},
+            </if>
+            <if test="name!=null">
+                ${symbol_pound}{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age!=null">
+                ${symbol_pound}{age,jdbcType=INTEGER},
+            </if>
+        </trim>
     </insert>
     <select id="find" parameterType="${package}.client.user.query.UserInfoQuery" resultMap="value">
         select
-        <include refid="columns_view"/>
+        <include refid="columns"/>
         from
         <include refid="table"/>
         <where>
@@ -78,7 +80,7 @@
 
     <select id="get" parameterType="${package}.client.user.query.UserInfoQuery" resultMap="value">
         select
-        <include refid="columns_view"/>
+        <include refid="columns"/>
         from
         <include refid="table"/>
         <where>

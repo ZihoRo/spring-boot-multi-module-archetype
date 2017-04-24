@@ -46,13 +46,13 @@ public class UserInfoMapperTest {
         List<UserInfoDomain> list = userInfoMapper.find(query);
         Assert.assertNotNull("list == null", list);
         Assert.assertFalse(list.isEmpty());
-        query = UserInfoQuery.builder().id(list.get(list.size()).getId()).build();
+        query = UserInfoQuery.builder().id(list.get(list.size() - 1).getId()).build();
         System.out.printf("param=%s, result=%s%n", query, userInfoMapper.find(query));
     }
 
     @Test
     public void insert() {
-        UserInfoDomain value = UserInfoDomain.builder().name(UUID.randomUUID().toString()).age(new Random(20).nextInt()).build();
+        UserInfoDomain value = UserInfoDomain.builder().name(UUID.randomUUID().toString()).age(new Random().nextInt(100)).build();
         System.out.printf("param=%s, result=%s%n", value, userInfoMapper.insert(value));
     }
 
@@ -62,7 +62,7 @@ public class UserInfoMapperTest {
         List<UserInfoDomain> list = userInfoMapper.find(query);
         Assert.assertNotNull("list == null", list);
         Assert.assertFalse(list.isEmpty());
-        UserInfoDomain value = UserInfoDomain.builder().id(list.get(list.size()).getId()).name(UUID.randomUUID().toString()).build();
+        UserInfoDomain value = UserInfoDomain.builder().id(list.get(list.size() - 1).getId()).age(new Random().nextInt(100)).build();
         System.out.printf("param=%s, result=%s%n", value, userInfoMapper.update(value));
     }
 
