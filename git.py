@@ -30,4 +30,4 @@ if __name__ == "__main__":
     else:
         git_add_all()
         git_commit_message()
-        git_push()
+    git_push()
