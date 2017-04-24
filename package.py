@@ -10,7 +10,7 @@ def package():
         print("Only one parameter will be received.")
     else:
         os.system("git pull")
-        os.system("mvn clean package -Dmaven.test.skip=true -U -P" + sys.argv[1])
+        os.system("mvn clean package -Dmaven.test.skip=true -U -P%s" % sys.argv[1])
 
 
 if __name__ == "__main__":

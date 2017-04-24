@@ -17,7 +17,7 @@ def git_commit_message():
     elif size > 2:
         print("Only one parameter will be received.")
     else:
-        os.system("git commit -m \"" + sys.argv[1] + "\"")
+        os.system("git commit -m \"%s\"" % sys.argv[1])
 
 
 def git_push():
@@ -25,6 +25,12 @@ def git_push():
 
 
 if __name__ == "__main__":
-    git_add_all()
-    git_commit_message()
-    git_push()
+    size = len(sys.argv)
+    if size < 2:
+        print("Please enter the commit message")
+    elif size > 2:
+        print("Only one parameter will be received.")
+    else:
+        git_add_all()
+        git_commit_message()
+        git_push()
