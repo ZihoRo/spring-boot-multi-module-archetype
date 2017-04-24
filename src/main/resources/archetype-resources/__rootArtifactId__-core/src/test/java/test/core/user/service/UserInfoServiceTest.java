@@ -3,9 +3,8 @@
 #set( $symbol_escape = '\' )
 package ${package}.test.core.user.service;
 
-import ${package}.core.ApplicationTest;
+import ${package}.test.core.ApplicationTest;
 import ${package}.core.user.service.UserInfoService;
-import ${package}.core.user.service.impl.UserInfoServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

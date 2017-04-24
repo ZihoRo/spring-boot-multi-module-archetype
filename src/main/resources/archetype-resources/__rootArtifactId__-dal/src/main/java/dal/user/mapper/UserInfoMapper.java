@@ -8,7 +8,7 @@ import ${package}.client.user.query.UserInfoQuery;
 import ${package}.dal.common.mapper.DomainMapper;
 
 /**
- * Created by ${userName} on 2017-04-24.
+ * Created by ${userName} on ${today}.
  */
 public interface UserInfoMapper extends DomainMapper<UserInfoDomain, UserInfoQuery> {
 }
