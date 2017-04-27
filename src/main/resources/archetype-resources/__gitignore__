@@ -159,6 +159,7 @@ ${symbol_pound} ************************************** IntelliJ Begin **********
 *.iml
 *.ipr
 .idea/
+*IS_UNDEFINED/
 
 ${symbol_pound}${symbol_pound} File-based project format:
 *.iws

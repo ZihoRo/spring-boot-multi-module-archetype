@@ -29,8 +29,8 @@ public class Query {
     private Long startRow;
     private Long endRow;
 
-    public void putOrderBy(String column, boolean asc) {
-        if (column == null || column.trim().equals("")) {
+    public void putOrderBy(String column, Boolean asc) {
+        if (column == null || column.trim().equals("") || asc == null) {
             return;
         }
         if (orderByList == null) {
@@ -141,16 +141,15 @@ public class Query {
         if (totalCount == null || totalCount.longValue() < 1L) {
             totalCount = Long.MAX_VALUE;
         }
-        startRow = Long.valueOf(pageSize.longValue() * (currentPage.longValue() - 1L));
-        if (startRow.longValue() >= totalCount.longValue()) {
-            startRow = totalCount;
-            endRow = totalCount;
-        } else {
-            endRow = Long.valueOf(pageSize.longValue() * (currentPage.longValue()));
-            if (endRow.longValue() >= totalCount.longValue()) {
-                endRow = totalCount;
-            }
+        long totalPage = totalCount.longValue() / pageSize.longValue();
+        if (totalPage * pageSize.longValue() < totalCount.longValue()) {
+            totalPage = totalPage + 1;
         }
+        if (currentPage.longValue() > totalPage) {
+            currentPage = Long.valueOf(totalPage);
+        }
+        startRow = Long.valueOf(pageSize.longValue() * (currentPage.longValue() - 1L));
+        endRow = Long.valueOf(startRow.longValue() + pageSize.longValue());
     }
 
     @Data

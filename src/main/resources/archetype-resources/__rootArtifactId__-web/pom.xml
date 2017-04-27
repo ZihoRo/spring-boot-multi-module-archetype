@@ -26,10 +26,6 @@
         </developer>
     </developers>
 
-    <properties>
-        <start-class>${package}.web.application.Application</start-class>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>${groupId}.core</groupId>
@@ -91,6 +87,10 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
