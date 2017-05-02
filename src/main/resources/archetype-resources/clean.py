@@ -10,7 +10,7 @@ def eclipse_clean():
 
 
 def idea_clean():
-    rm("./", ["*.iml", "*.ipr", "*.iws", ".idea_modules", ".idea"], True)
+    rm(".", ["*.iml", "*.ipr", "*.iws", ".idea_modules", ".idea"], True)
 
 
 def rm(root, patterns, recursive=False):
