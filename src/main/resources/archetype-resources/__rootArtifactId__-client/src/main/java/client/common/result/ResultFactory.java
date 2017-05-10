@@ -13,19 +13,15 @@ import java.util.List;
  * Created by ${userName} on ${today}.
  */
 public class ResultFactory {
-    private static final Result<?> emptySuccess = new Result<Object>(true);
-    private static final Result<?> emptyListSuccess = new Result<Object>(true, new ListWrapper<Object>(Collections.emptyList(), 0));
+    private static final Result<?> emptySuccess = new Result<>(true);
+    private static final Result<?> emptyListSuccess = new Result<>(true, new ListWrapper<>(Collections.emptyList()));
 
     public static <Value> Result<Value> success() {
-        return (Result<Value>) emptySuccess;
+        return success(null, null);
     }
 
     public static <Value> Result<Value> success(Value data) {
         return success(data, null);
-    }
-
-    public static <Value> Result<Value> success(Value data, ErrorWrapper error) {
-        return new Result<Value>(true, data, error);
     }
 
     public static <Value> Result<Value> success(ErrorWrapper error) {
@@ -33,32 +29,48 @@ public class ResultFactory {
     }
 
     public static <Value> Result<Value> successCheck(Value data, ErrorWrapper error) {
-        return new Result<Value>(true, data, data == null ? error : null);
+        return new Result<>(true, data, data == null ? error : null);
+    }
+
+    public static <Value> Result<Value> success(Value data, ErrorWrapper error) {
+        if (data == null && error == null) {
+            return (Result<Value>) emptySuccess;
+        }
+        return new Result<>(true, data, error);
     }
 
     public static <Value> Result<ListWrapper<Value>> successList() {
-        return (Result<ListWrapper<Value>>) emptyListSuccess;
+        return successList(null, null, (Long) null, (Long) null);
     }
 
     public static <Value> Result<ListWrapper<Value>> successList(List<Value> data) {
-        if (data == null || data.isEmpty()) {
-            return successList();
-        }
-        return successList(data, (long) data.size());
+        return successList(data, null, (Long) null, (Long) null);
     }
 
-    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, int count) {
-        return successList(data, (long) count);
+    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, Integer total, Integer currentPage, Integer pageSize) {
+        return successList(data, total == null ? null : total.longValue(), currentPage == null ? null : currentPage.longValue(), pageSize == null ? null : pageSize.longValue());
     }
 
-    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, long count) {
+    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, Long total, Integer currentPage, Integer pageSize) {
+        return successList(data, total == null ? null : total.longValue(), currentPage == null ? null : currentPage.longValue(), pageSize == null ? null : pageSize.longValue());
+    }
+
+    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, Long total, Long currentPage, Integer pageSize) {
+        return successList(data, total == null ? null : total.longValue(), currentPage == null ? null : currentPage.longValue(), pageSize == null ? null : pageSize.longValue());
+    }
+
+    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, Long total, Integer currentPage, Long pageSize) {
+        return successList(data, total == null ? null : total.longValue(), currentPage == null ? null : currentPage.longValue(), pageSize == null ? null : pageSize.longValue());
+    }
+
+    public static <Value> Result<ListWrapper<Value>> successList(List<Value> data, Long total, Long currentPage, Long pageSize) {
         if (data == null || data.isEmpty()) {
-            if (count == 0L) {
-                return successList();
+            if (total == null || total.longValue() == 0L) {
+                return (Result<ListWrapper<Value>>) emptyListSuccess;
             }
             data = Collections.emptyList();
         }
-        return new Result<ListWrapper<Value>>(true, new ListWrapper<Value>(data, count));
+        return new Result<>(true, new ListWrapper<>(data, total, currentPage, pageSize));
     }
 
     public static <Value> Result<Value> error(int code, String name, String msg) {
@@ -74,11 +86,11 @@ public class ResultFactory {
     }
 
     public static <Value> Result<Value> error(long code, String name, String msg) {
-        return new Result<Value>(false, null, new ErrorWrapper(code, name, msg));
+        return new Result<>(false, null, new ErrorWrapper(code, name, msg));
     }
 
     public static <Value> Result<Value> error(Result<?> result) {
-        return new Result<Value>(false, null, result.getError());
+        return new Result<>(false, null, result.getError());
     }
 
 }

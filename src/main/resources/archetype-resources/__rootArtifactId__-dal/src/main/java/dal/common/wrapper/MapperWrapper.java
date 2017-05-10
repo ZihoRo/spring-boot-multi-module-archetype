@@ -46,7 +46,7 @@ public class MapperWrapper {
             if(query.isPageEnable()){
                 query.putTotalCount(count);
             }
-            return ResultFactory.successList(mapper.find(query), count);
+            return ResultFactory.successList(mapper.find(query), count, query.getCurrentPage(), query.getPageSize());
         } catch (Throwable e) {
             throw new DatabaseSqlExecuteException(e);
         }
