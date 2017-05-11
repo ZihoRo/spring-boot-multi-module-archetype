@@ -6,6 +6,7 @@ package ${package}.client.common.result;
 import ${package}.client.common.error.ErrorWrapper;
 import ${package}.client.common.list.ListWrapper;
 
+import java.util.function.Function;
 import java.util.Collections;
 import java.util.List;
 
@@ -91,6 +92,37 @@ public class ResultFactory {
 
     public static <Value> Result<Value> error(Result<?> result) {
         return new Result<>(false, null, result.getError());
+    }
+
+    public static <From> Result<Void> convertVoid(Result<From> result) {
+        return convertVoid(result, false);
+    }
+
+    public static <From> Result<Void> convertVoid(Result<From> result, boolean require) {
+        return convert(result, require, value -> (Void) null);
+    }
+
+    public static <From, To> Result<To> convert(Result<From> result) {
+        return convert(result, false);
+    }
+
+    public static <From, To> Result<To> convert(Result<From> result, boolean require) {
+        return convert(result, require, null);
+    }
+
+    public static <From, To> Result<To> convert(Result<From> result, Function<From, To> convert) {
+        return convert(result, false, convert);
+    }
+
+    public static <From, To> Result<To> convert(Result<From> result, boolean require, Function<From, To> convert) {
+        if (convert == null) {
+            return new Result<>(isSuccess(require, result), null, result.getError());
+        }
+        return new Result<>(isSuccess(require, result), convert.apply(result.getData()), result.getError());
+    }
+
+    private static <Value> boolean isSuccess(boolean require, Result<Value> result) {
+        return require ? result.hasValue() : result.isSuccess();
     }
 
 }

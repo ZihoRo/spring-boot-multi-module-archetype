@@ -39,14 +39,14 @@ public class MapperWrapper {
             throw new NullPointerException("query is null");
         }
         try {
-            long count = mapper.count(query);
-            if (count < 1) {
-                return ResultFactory.successList();
-            }
-            if(query.isPageEnable()){
+            if (query.isPageEnable()) {
+                long count = mapper.count(query);
+                if (count < 1) {
+                    return ResultFactory.successList();
+                }
                 query.putTotalCount(count);
             }
-            return ResultFactory.successList(mapper.find(query), count, query.getCurrentPage(), query.getPageSize());
+            return ResultFactory.successList(mapper.find(query), query.getTotalCount(), query.getCurrentPage(), query.getPageSize());
         } catch (Throwable e) {
             throw new DatabaseSqlExecuteException(e);
         }
