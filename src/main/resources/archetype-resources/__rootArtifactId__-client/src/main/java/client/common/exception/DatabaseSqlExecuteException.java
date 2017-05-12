@@ -3,22 +3,21 @@
 #set( $symbol_escape = '\' )
 package ${package}.client.common.exception;
 
+import ${package}.client.common.error.ErrorWrapper;
+
 /**
  * Created by ${userName} on ${today}.
  */
-public class DatabaseSqlExecuteException extends RuntimeException {
-    public DatabaseSqlExecuteException() {
+public class DatabaseSqlExecuteException extends com.shinemo.demo.pay.client.common.exception.BaseException {
+    public DatabaseSqlExecuteException(ErrorWrapper errorWrapper) {
+        super(errorWrapper);
     }
 
-    public DatabaseSqlExecuteException(String message) {
-        super(message);
+    public DatabaseSqlExecuteException(ErrorWrapper errorWrapper, Throwable cause) {
+        super(errorWrapper, cause);
     }
 
-    public DatabaseSqlExecuteException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public DatabaseSqlExecuteException(Throwable cause) {
-        super(cause);
+    public DatabaseSqlExecuteException(ErrorWrapper errorWrapper, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(errorWrapper, cause, enableSuppression, writableStackTrace);
     }
 }
