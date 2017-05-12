@@ -87,11 +87,15 @@ public class ResultFactory {
     }
 
     public static <Value> Result<Value> error(long code, String name, String msg) {
-        return new Result<>(false, null, new ErrorWrapper(code, name, msg));
+        return error(new ErrorWrapper(code, name, msg));
     }
 
     public static <Value> Result<Value> error(Result<?> result) {
-        return new Result<>(false, null, result.getError());
+        return error(result.getError());
+    }
+
+    public static <Value> Result<Value> error(ErrorWrapper error) {
+        return new Result<>(false, null, error);
     }
 
     public static <From> Result<Void> convertVoid(Result<From> result) {
