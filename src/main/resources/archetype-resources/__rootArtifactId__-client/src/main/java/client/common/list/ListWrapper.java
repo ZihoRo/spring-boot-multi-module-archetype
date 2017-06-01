@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 /**
  * Created by ${userName} on ${today}.
  */
-@Data
+@EqualsAndHashCode
+@ToString
 public class ListWrapper<Value> {
     private List<Value> rows;
     private Long total;

@@ -6,6 +6,7 @@ package ${package}.dal.common.wrapper;
 import ${package}.client.common.entity.Entity;
 import ${package}.client.common.error.ErrorWrapper;
 import ${package}.client.common.exception.DatabaseSqlExecuteException;
+import ${package}.client.common.exception.ParamterInvalidException;
 import ${package}.client.common.list.ListWrapper;
 import ${package}.client.common.model.Model;
 import ${package}.client.common.query.Query;

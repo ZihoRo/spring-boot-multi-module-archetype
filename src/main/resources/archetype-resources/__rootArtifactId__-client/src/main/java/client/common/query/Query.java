@@ -23,6 +23,7 @@ public class Query {
     private boolean orderByEnable = false;
     private Long pageSize;
     private Long currentPage;
+    @Getter
     private Long totalCount;
     @Getter
     private List<OrderBy> orderByList;

@@ -68,7 +68,7 @@ public class UserInfoWrapperImpl implements UserInfoWrapper {
         }
         System.out.printf("%s,%s%n", updateCount, updateSuccessCount);
         if(updateSuccessCount > 0){
-            throw new DatabaseSqlExecuteException("test transaction");
+            throw new DatabaseSqlExecuteException(new ErrorWrapper(0, "TEST_TRANSACTION", "test transaction"));
         }
         return ResultFactory.success(updateSuccessCount);
     }

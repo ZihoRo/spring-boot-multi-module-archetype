@@ -8,7 +8,7 @@ import ${package}.client.common.error.ErrorWrapper;
 /**
  * Created by ${userName} on ${today}.
  */
-public class DatabaseSqlExecuteException extends com.shinemo.demo.pay.client.common.exception.BaseException {
+public class DatabaseSqlExecuteException extends BaseException {
     public DatabaseSqlExecuteException(ErrorWrapper errorWrapper) {
         super(errorWrapper);
     }
