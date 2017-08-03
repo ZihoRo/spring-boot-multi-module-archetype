@@ -14,6 +14,8 @@ import ${package}.client.common.result.Result;
 import ${package}.client.common.result.ResultFactory;
 import ${package}.dal.common.mapper.Mapper;
 
+import java.util.List;
+
 /**
  * Created by ${userName} on ${today}.
  */
@@ -110,16 +112,37 @@ public class MapperWrapper {
         }
     }
 
+    public static <E extends Entity, M extends Model, Q extends Query> Result<Long> batchInsert(Mapper<E, M, Q> mapper, List<E> entities) {
+        return batchInsert(mapper, entities, null);
+    }
+
+    public static <E extends Entity, M extends Model, Q extends Query> Result<Long> batchInsert(Mapper<E, M, Q> mapper, List<E> entities, ErrorWrapper error) {
+        if (mapper == null) {
+            throw new ParamterInvalidException(new ErrorWrapper(10012, "MAPPER_NULL_BATCH_INSERT", "mapper is null"));
+        }
+        if (entities == null) {
+            throw new ParamterInvalidException(new ErrorWrapper(10013, "ENTITY_NULL_BATCH_INSERT", "entities is null"));
+        }
+        try {
+            return ResultFactory.success(mapper.batchInsert(entities));
+        } catch (Throwable e) {
+            if (error == null) {
+                error = new ErrorWrapper(10014, "SQL_ERROR_INSERT", "sql failed execute");
+            }
+            throw new DatabaseSqlExecuteException(error, e);
+        }
+    }
+
     public static <E extends Entity, M extends Model, Q extends Query> Result<E> update(Mapper<E, M, Q> mapper, E entity) {
         return update(mapper, entity, null);
     }
 
     public static <E extends Entity, M extends Model, Q extends Query> Result<E> update(Mapper<E, M, Q> mapper, E entity, ErrorWrapper error) {
         if (mapper == null) {
-            throw new ParamterInvalidException(new ErrorWrapper(10012, "MAPPER_NULL_UPDATE", "mapper is null"));
+            throw new ParamterInvalidException(new ErrorWrapper(10015, "MAPPER_NULL_UPDATE", "mapper is null"));
         }
         if (entity == null) {
-            throw new ParamterInvalidException(new ErrorWrapper(10013, "ENTITY_NULL_UPDATE", "entity is null"));
+            throw new ParamterInvalidException(new ErrorWrapper(10016, "ENTITY_NULL_UPDATE", "entity is null"));
         }
         try {
             long result = mapper.update(entity);
@@ -132,7 +155,7 @@ public class MapperWrapper {
             return ResultFactory.success(entity);
         } catch (Throwable e) {
             if (error == null) {
-                error = new ErrorWrapper(10014, "SQL_ERROR_UPDATE", "sql failed execute");
+                error = new ErrorWrapper(10017, "SQL_ERROR_UPDATE", "sql failed execute");
             }
             throw new DatabaseSqlExecuteException(error, e);
         }
@@ -144,10 +167,10 @@ public class MapperWrapper {
 
     public static <E extends Entity, M extends Model, Q extends Query> Result<E> delete(Mapper<E, M, Q> mapper, E entity, ErrorWrapper error) {
         if (mapper == null) {
-            throw new ParamterInvalidException(new ErrorWrapper(10015, "MAPPER_NULL_DELETE", "mapper is null"));
+            throw new ParamterInvalidException(new ErrorWrapper(10018, "MAPPER_NULL_DELETE", "mapper is null"));
         }
         if (entity == null) {
-            throw new ParamterInvalidException(new ErrorWrapper(10016, "ENTITY_NULL_DELETE", "entity is null"));
+            throw new ParamterInvalidException(new ErrorWrapper(10019, "ENTITY_NULL_DELETE", "entity is null"));
         }
         try {
             long result = mapper.delete(entity);
@@ -160,7 +183,32 @@ public class MapperWrapper {
             return ResultFactory.success(entity);
         } catch (Throwable e) {
             if (error == null) {
-                error = new ErrorWrapper(10017, "SQL_ERROR_DELETE", "sql failed execute");
+                error = new ErrorWrapper(10020, "SQL_ERROR_DELETE", "sql failed execute");
+            }
+            throw new DatabaseSqlExecuteException(error, e);
+        }
+    }
+
+    public static <E extends Entity, M extends Model, Q extends Query> Result<Void> create(Mapper<E, M, Q> mapper, String tableName) {
+        return create(mapper, tableName, null);
+    }
+
+    public static <E extends Entity, M extends Model, Q extends Query> Result<Void> create(Mapper<E, M, Q> mapper, String tableName, ErrorWrapper error) {
+        if (mapper == null) {
+            throw new ParamterInvalidException(new ErrorWrapper(10021, "MAPPER_NULL_CREATE", "mapper is null"));
+        }
+        if (tableName == null) {
+            throw new ParamterInvalidException(new ErrorWrapper(10022, "TABLE_NAME_NULL_CREATE", "tableName is null"));
+        }
+        if (tableName.trim().isEmpty()) {
+            throw new ParamterInvalidException(new ErrorWrapper(10023, "TABLE_NAME_EMPTY_CREATE", "tableName is empty"));
+        }
+        try {
+            mapper.create(tableName);
+            return ResultFactory.success();
+        } catch (Throwable e) {
+            if (error == null) {
+                error = new ErrorWrapper(10024, "SQL_ERROR_CREATE", "sql failed execute");
             }
             throw new DatabaseSqlExecuteException(error, e);
         }
