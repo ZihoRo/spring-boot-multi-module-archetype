@@ -1,4 +1,6 @@
-package ${package}.client.common.utils;
+package $
+
+{package}.client.common.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,19 +9,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import org.springframework.util.ClassUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.IdentityHashMap;
 import java.util.function.Supplier;
 
 /**
  * CCreated by ${userName} on ${today}.
  */
 public abstract class JsonUtils {
+    private static final Map<Class<?>, Class<?>> primitiveWrapperTypeMap = new IdentityHashMap<Class<?>, Class<?>>(8);
+
     private static ObjectMapper objectMapper;
 
     private final static Gson gson;
@@ -29,6 +33,15 @@ public abstract class JsonUtils {
     private final static ${package}.client.common.utils.JsonUtils gsonUtils;
 
     static {
+        primitiveWrapperTypeMap.put(Boolean.class, boolean.class);
+        primitiveWrapperTypeMap.put(Byte.class, byte.class);
+        primitiveWrapperTypeMap.put(Character.class, char.class);
+        primitiveWrapperTypeMap.put(Double.class, double.class);
+        primitiveWrapperTypeMap.put(Float.class, float.class);
+        primitiveWrapperTypeMap.put(Integer.class, int.class);
+        primitiveWrapperTypeMap.put(Long.class, long.class);
+        primitiveWrapperTypeMap.put(Short.class, short.class);
+
         objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -52,7 +65,7 @@ public abstract class JsonUtils {
                 if (object == null) {
                     return null;
                 }
-                if (ClassUtils.isPrimitiveOrWrapper(object.getClass())) {
+                if (object.getClass().isPrimitive() || primitiveWrapperTypeMap.containsKey(object.getClass())) {
                     throw new RuntimeException("object class is primitive");
                 }
                 return objectMapper.convertValue(object, new TypeReference<Map<String, Object>>() {
@@ -158,7 +171,7 @@ public abstract class JsonUtils {
                 if (object == null) {
                     return null;
                 }
-                if (ClassUtils.isPrimitiveOrWrapper(object.getClass())) {
+                if (object.getClass().isPrimitive() || primitiveWrapperTypeMap.containsKey(object.getClass())) {
                     throw new RuntimeException("object class is primitive");
                 }
                 return this.fromJson(this.toJson(object), () -> new TypeToken<Map<String, Object>>() {
