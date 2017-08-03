@@ -23,4 +23,8 @@ public class ErrorWrapper {
         this.name = (name == null || name.trim().equals("")) ? "EMPTY" : name;
         this.msg = (msg == null || msg.trim().equals("")) ? "EMPTY" : msg;
     }
+
+    public String toJson(){
+        return String.format("{\"code\":%s,\"name\":\"%s\",\"msg\":\"%s\"}", code, name, msg);
+    }
 }
