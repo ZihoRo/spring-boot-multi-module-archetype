@@ -22,9 +22,16 @@ ${symbol_pound} *** datasource配置 ***
 spring:
   datasource:
 ${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
-    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+    url: "jdbc:log4jdbc:h2:mem:test;MODE=MYSQL;AUTO_RECONNECT=TRUE"
     username: "root"
     password: "tiger"
+    ${symbol_pound} schema: "classpath*:sql/table/schema.sql"
+  h2.console.enabled: true
+  redis:
+    # Redis数据库索引（默认为0）
+    ${symbol_pound} database: 0
+    # rediss 表示使用ssl，@前面是用户信息，用户名和密码用 : 分割，@之后是服务器信息，ip和端口号用 : 分割
+    ${symbol_pound} url: "redis://@127.0.0.1:6379"
 ${symbol_pound} 日志格式中 clr 占位符生效配置
   output.ansi.enabled: "ALWAYS"
   jmx:
