@@ -32,6 +32,7 @@
     <springProperty scope="context" name="spring.logback.sql.max.file.size" source="spring.logback.sql.max.file.size" defaultValue="100MB" />
     <springProperty scope="context" name="spring.logback.sql.pattern" source="spring.logback.sql.pattern" />
     <springProperty scope="context" name="spring.logback.console.pattern" source="spring.logback.console.pattern" />
+    <springProperty scope="context" name="spring.logback.history.suffix" source="spring.logback.history.suffix" defaultValue=".log" />
 
     <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${symbol_dollar}{log.home}/access.log</file>
@@ -55,7 +56,7 @@
         <file>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.error.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.error.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
+            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.error.%d{yyyy-MM-dd}-%i${symbol_dollar}{spring.logback.history.suffix}</FileNamePattern>
             <maxHistory>${symbol_dollar}{spring.logback.error.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>${symbol_dollar}{spring.logback.error.max.file.size}</maxFileSize>
@@ -74,7 +75,7 @@
         <file>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.info.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.info.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
+            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.info.%d{yyyy-MM-dd}-%i${symbol_dollar}{spring.logback.history.suffix}</FileNamePattern>
             <maxHistory>${symbol_dollar}{spring.logback.info.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>${symbol_dollar}{spring.logback.info.max.file.size}</maxFileSize>
@@ -93,7 +94,7 @@
         <file>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
+            <FileNamePattern>${symbol_dollar}{log.home}/${symbol_dollar}{application.name}.%d{yyyy-MM-dd}-%i${symbol_dollar}{spring.logback.history.suffix}</FileNamePattern>
             <maxHistory>${symbol_dollar}{spring.logback.application.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>${symbol_dollar}{spring.logback.application.max.file.size}</maxFileSize>
@@ -112,7 +113,7 @@
         <file>${symbol_dollar}{log.home}/sql.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${symbol_dollar}{log.home}/sql.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
+            <FileNamePattern>${symbol_dollar}{log.home}/sql.%d{yyyy-MM-dd}-%i${symbol_dollar}{spring.logback.history.suffix}</FileNamePattern>
             <maxHistory>${symbol_dollar}{spring.logback.sql.max.history}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>${symbol_dollar}{spring.logback.sql.max.file.size}</maxFileSize>
@@ -140,29 +141,13 @@
         </root>
     </springProfile>
 
-    <springProfile name="daily,pre,online">
+    <springProfile name="!dev">
         <logger name="access" additivity="false">
             <level value="info"/>
             <appender-ref ref="ACCESS"/>
         </logger>
 
-        <logger name="jdbc.resultset" additivity="false">
-            <level value="off"/>
-        </logger>
-
-        <logger name="jdbc.connection" additivity="false">
-            <level value="off"/>
-        </logger>
-
-        <logger name="jdbc.audit" additivity="false">
-            <level value="off"/>
-        </logger>
-
-        <logger name="jdbc.sqlonly" additivity="false">
-            <level value="off"/>
-        </logger>
-
-        <logger name="jdbc.sqltiming" additivity="false">
+        <logger name="mapper" additivity="false">
             <level value="${symbol_dollar}{log.level}"/>
             <appender-ref ref="SQL"/>
         </logger>
@@ -170,7 +155,6 @@
         <root>
             <appender-ref ref="APPLICATION" level="${symbol_dollar}{log.level}"/>
             <appender-ref ref="ERROR" level="ERROR"/>
-            <appender-ref ref="INFO" level="${symbol_dollar}{log.level}"/>
         </root>
     </springProfile>
 

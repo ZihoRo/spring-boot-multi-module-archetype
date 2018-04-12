@@ -17,6 +17,9 @@
         <requiredProperty key="today">
             <!--<defaultValue>2013-01-04</defaultValue>-->
         </requiredProperty>
+        <requiredProperty key="gitGroup">
+            <defaultValue>zihoro</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" encoding="UTF-8">

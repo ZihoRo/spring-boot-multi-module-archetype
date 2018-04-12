@@ -16,6 +16,7 @@ spring.logback:
   application.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
   sql.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
   console.pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{64}.%method:%line - %msg%n"
+  history.suffix: ".log"
 
 ${symbol_pound} ************************* 第三方配置 *************************
 ${symbol_pound} *** datasource配置 ***

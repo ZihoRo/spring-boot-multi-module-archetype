@@ -3,11 +3,11 @@
 #set( $symbol_escape = '\' )
 package ${package}.test.core.user.service;
 
-import ${package}.test.core.ApplicationTest;
 import ${package}.core.user.service.UserInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -15,10 +15,9 @@ import javax.annotation.Resource;
 /**
  * Created by ${userName} on ${today}.
  */
+@MybatisTest
 @RunWith(SpringRunner.class)
-@SpringBootTest(
-        classes = {ApplicationTest.class}
-)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class UserInfoServiceTest {
 
     @Resource

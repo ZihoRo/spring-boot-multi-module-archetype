@@ -6,11 +6,11 @@ package ${package}.test.dal.user.mapper;
 import ${package}.client.user.domain.UserInfoDomain;
 import ${package}.client.user.query.UserInfoQuery;
 import ${package}.dal.user.mapper.UserInfoMapper;
-import ${package}.test.dal.ApplicationTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -21,8 +21,9 @@ import java.util.UUID;
 /**
  * Created by ${userName} on ${today}.
  */
+@MybatisTest
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ApplicationTest.class})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class UserInfoMapperTest {
 
     @Resource

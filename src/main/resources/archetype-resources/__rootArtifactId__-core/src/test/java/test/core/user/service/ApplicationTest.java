@@ -1,19 +1,23 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.test.core;
+package ${package}.test.core.user.service;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Created by ${userName} on ${today}.
  */
 @SpringBootApplication
-@ImportResource(locations = {"classpath:${rootArtifactId}-core.xml"})
-@MapperScan(basePackages = {"${package}.dal.user.mapper"})
+@MapperScan(basePackages = {
+        "${package}.dal.user.mapper"
+})
+@ComponentScan(basePackages = {
+        "${package}.dal.user.wrapper",
+})
 public class ApplicationTest {
 
     public static void main(String[] args) throws Exception {

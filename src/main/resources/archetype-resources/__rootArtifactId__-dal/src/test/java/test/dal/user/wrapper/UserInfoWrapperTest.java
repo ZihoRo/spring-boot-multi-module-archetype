@@ -6,10 +6,10 @@ package ${package}.test.dal.user.wrapper;
 import ${package}.client.user.query.UserInfoQuery;
 import ${package}.dal.user.mapper.UserInfoMapper;
 import ${package}.dal.user.wrapper.UserInfoWrapper;
-import ${package}.test.dal.ApplicationTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -17,8 +17,9 @@ import javax.annotation.Resource;
 /**
  * Created by ${userName} on ${today}.
  */
+@MybatisTest
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ApplicationTest.class})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class UserInfoWrapperTest {
     @Resource
     private UserInfoWrapper userInfoWrapper;
