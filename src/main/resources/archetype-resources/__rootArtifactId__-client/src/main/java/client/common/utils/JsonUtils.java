@@ -1,6 +1,4 @@
-package $
-
-{package}.client.common.utils;
+package ${package}.client.common.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
