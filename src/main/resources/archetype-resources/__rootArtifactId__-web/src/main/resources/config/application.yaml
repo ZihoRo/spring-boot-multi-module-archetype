@@ -8,7 +8,7 @@ application:
 ${symbol_pound} *** 应用编码 ***
   charset: "${application.charset}"
 ${symbol_pound} *** logback自定义配置 ***
-spring.logback: 
+spring.logback:
   access.max.history: 3
   access.max.file.size: "100MB"
   error.max.history: 7
@@ -40,8 +40,8 @@ ${symbol_pound} *** ResponseBody jackson配置 ***
     default-property-inclusion: "NON_EMPTY"
 ${symbol_pound} *** datasource配置 ***
   datasource:
-${symbol_pound}    driver-class-name: "com.mysql.jdbc.Driver"
-    driver-class-name: "net.sf.log4jdbc.DriverSpy"
+    driver-class-name: "com.mysql.jdbc.Driver"
+${symbol_pound}    driver-class-name: "net.sf.log4jdbc.DriverSpy"
     type: "com.alibaba.druid.pool.DruidDataSource"
     filters: "stat"
     max-active: 20

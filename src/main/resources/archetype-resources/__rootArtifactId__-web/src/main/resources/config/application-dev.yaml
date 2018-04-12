@@ -22,8 +22,8 @@ ${symbol_pound} ************************* 第三方配置 **********************
 ${symbol_pound} *** datasource配置 ***
 spring:
   datasource:
-${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
-    url: "jdbc:log4jdbc:h2:mem:test;MODE=MYSQL;AUTO_RECONNECT=TRUE"
+    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+${symbol_pound}    url: "jdbc:log4jdbc:h2:mem:test;MODE=MYSQL;AUTO_RECONNECT=TRUE"
     username: "root"
     password: "tiger"
     ${symbol_pound} schema: "classpath*:sql/table/schema.sql"

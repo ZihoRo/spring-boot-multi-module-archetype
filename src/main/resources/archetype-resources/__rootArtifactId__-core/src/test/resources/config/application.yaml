@@ -8,7 +8,7 @@ application:
 ${symbol_pound} *** 应用编码 ***
   charset: "${symbol_dollar}{application.charset}"
 ${symbol_pound} *** logback自定义配置 ***
-spring.logback: 
+spring.logback:
   access.max.history: 3
   access.max.file.size: "100MB"
   error.max.history: 7
@@ -28,12 +28,12 @@ spring:
     name: "${parentArtifactId}"
 ${symbol_pound} *** datasource配置 ***
   datasource:
-${symbol_pound}    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
-    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+    url: "jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
+${symbol_pound}    url: "jdbc:log4jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8&amp;allowMultiQueries=true"
     username: "root"
     password: "tiger"
-${symbol_pound}    driver-class-name: "com.mysql.jdbc.Driver"
-    driver-class-name: "net.sf.log4jdbc.DriverSpy"
+    driver-class-name: "com.mysql.jdbc.Driver"
+${symbol_pound}    driver-class-name: "net.sf.log4jdbc.DriverSpy"
     type: "com.alibaba.druid.pool.DruidDataSource"
     filters: "stat"
     max-active: 20
